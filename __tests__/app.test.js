@@ -4,10 +4,11 @@ const request = require('supertest');
 const app = require('../lib/app.js');
 //PATH to DATA FILE as variable. 
 const dummyStudioData = require('../lib/dummyData/dummyStudioData.js');
+const faker = require('faker');
 
 
 describe('ripe-banana routes', () => {
-  beforeEach(() => {
+  beforeAll(() => {
     return setup(pool);
   });
   //code here
@@ -27,16 +28,17 @@ describe('ripe-banana routes', () => {
 
   //-----------------------------------------------------------------------------------------------------/
 
-  xit('GET /studios, returns [{ id, name }]', () => {
+  it('GET /studios, returns [{ id, name }]', async() => {
+    const res = await request(app).get('/studios/');
+    expect(res.body).toEqual([{
 
-    return request(app)
-      .get('/studios')
-      .then((res) => {
-
-
-        expect(res.body).toEqual();
-      });
-
+      id: expect.any(String),
+      name: expect.any(String) 
+      
+    }])
+  });
+  // console.log('AAAAAHHHHHHH!!!!!!!!', faker.date);
+  
   });
 
 
@@ -51,4 +53,4 @@ describe('ripe-banana routes', () => {
   afterAll(() => {
     pool.end();
   });
-});
+
