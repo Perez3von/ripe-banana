@@ -1,4 +1,5 @@
-DROP TABLE IF EXISTS studios;
+DROP TABLE IF EXISTS studios, films CASCADE;
+
 
 CREATE TABLE studios (
 
@@ -9,3 +10,14 @@ state TEXT NULL,
 country TEXT NOT NULL
 
 );
+
+
+CREATE TABLE films (
+
+id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+title TEXT NOT NULL,
+studio BIGINT NOT NULL REFERENCES studios(id),
+release DATE NOT NULL
+
+);
+
