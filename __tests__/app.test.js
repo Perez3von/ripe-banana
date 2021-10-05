@@ -32,7 +32,7 @@ describe('ripe-banana routes', () => {
     const res = await request(app).get('/studios/');
     expect(res.body).toEqual([{
 
-      id: expect.any(String),
+      id: expect.any(Number),
       name: expect.any(String) 
       
     }])
