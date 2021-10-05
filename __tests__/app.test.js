@@ -44,7 +44,23 @@ describe('ripe-banana routes', () => {
 
   //-----------------------------------------------------------------------------------------------------/
 
+  // it('GETS studio by ID', async => {
+  //   const res = await request(app).get('/studios/1');
+  //   expect(res.body).toEqual({
 
+  //     id: expect.any(Number),
+  //     name: expect.any(String),
+  //     city: expect.any(String),
+  //     state: expect.any(String),
+  //     country: expect.any(String),
+  //     films: [{
+
+  //     id: expect.any(Number),
+  //     title: expect.any(String)
+        
+  //     }]
+  //   })
+  // })
 
 
 
