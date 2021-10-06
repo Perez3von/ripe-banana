@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS films CASCADE;
 DROP TABLE IF EXISTS actors CASCADE;
 DROP TABLE IF EXISTS reviewers CASCADE;
 DROP TABLE IF EXISTS reviews CASCADE;
-
+DROP TABLE IF EXISTS films_actors CASCADE;
 
 CREATE TABLE studios (
 
@@ -52,3 +52,8 @@ film BIGINT NOT NULL
 
 );
 
+CREATE TABLE films_actors (
+    actors_id BIGINT REFERENCES actors(id),
+    films_id BIGINT REFERENCES films(id)
+
+);
