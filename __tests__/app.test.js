@@ -80,8 +80,8 @@ it('GETS studio by ID', async () => {
 //-----------------------------------------------------------------------------------------------------/
 
 
-it('GETS film by ID', async () => {
-  const res = await request(app).get('/films/1');
+it('GETS films ', async () => {
+  const res = await request(app).get('/films');
   expect(res.body).toEqual([{
 
     id: expect.any(Number),
@@ -94,10 +94,9 @@ it('GETS film by ID', async () => {
   }]);
 });
 
-
-
-
 //-----------------------------------------------------------------------------------------------------/
+
+
 afterAll(() => {
   pool.end();
 });
