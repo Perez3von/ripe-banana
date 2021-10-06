@@ -78,6 +78,26 @@ it('GETS studio by ID', async () => {
 
 
 //-----------------------------------------------------------------------------------------------------/
+
+
+it('GETS film by ID', async () => {
+  const res = await request(app).get('/films/1');
+  expect(res.body).toEqual([{
+
+    id: expect.any(Number),
+    title: expect.any(String),
+    released: expect.any(Number),
+    studio:{
+      id:expect.any(Number),
+      name:expect.any(String)
+    }
+  }]);
+});
+
+
+
+
+//-----------------------------------------------------------------------------------------------------/
 afterAll(() => {
   pool.end();
 });
