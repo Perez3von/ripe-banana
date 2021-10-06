@@ -6,6 +6,7 @@ const app = require('../lib/app.js');
 const dummyStudioData = require('../lib/dummyData/dummyStudioData.js');
 const dummyFilmData = require('../lib/dummyData/dummyFilmData.js');
 const dummyActorData = require('../lib/dummyData/dummyActorData.js');
+const dummyReviewerData = require('../lib/dummyData/dummyReviewerData');
 
 
 
@@ -56,6 +57,19 @@ describe('ripe-banana routes', () => {
 
 
   //-----------------------------------------------------------------------------------------------------/
+
+  it('POST /actors reviewers array of objects inserted', async () => {
+    const single_object_from_dummyData = dummyReviewerData[0];
+    
+    const res = await request(app).post('/reviewers').send(single_object_from_dummyData);
+   
+    expect(res.body).toEqual(single_object_from_dummyData);
+
+  });
+
+
+  //-----------------------------------------------------------------------------------------------------/
+
   it('GET /studios, returns [{ id, name }]', async () => {
     const res = await request(app).get('/studios');
     expect(res.body).toEqual([{
