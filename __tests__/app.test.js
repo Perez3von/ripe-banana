@@ -80,8 +80,8 @@ it('GETS studio by ID', async () => {
 //-----------------------------------------------------------------------------------------------------/
 
 
-it('GETS film by ID', async () => {
-  const res = await request(app).get('/films/1');
+it('GETS films ', async () => {
+  const res = await request(app).get('/films');
   expect(res.body).toEqual([{
 
     id: expect.any(Number),
@@ -94,10 +94,28 @@ it('GETS film by ID', async () => {
   }]);
 });
 
+//-----------------------------------------------------------------------------------------------------/
 
 
+it('GETS films by ID with actors and reviews ', async () => {
+  const res = await request(app).get('/films/1');
+  expect(res.body).toEqual({
+    title:expect.any(String),
+    released:expect.any(Number),
+    studio: { id:expect.any(Number), name:expect.any(String) },
+    cast: [{ id:expect.any(Number), name:expect.any(String) }], // actor id and name
+    reviews: [{
+      id:expect.any(Number),
+      rating:expect.any(String),
+      review:expect.any(Number),
+      reviewer: { id:expect.any(Number), name:expect.any(String) }
+    }]
+  });
+});
 
 //-----------------------------------------------------------------------------------------------------/
+
+
 afterAll(() => {
   pool.end();
 });
