@@ -5,7 +5,7 @@ const app = require('../lib/app.js');
 //PATH to DATA FILE as variable. 
 const dummyStudioData = require('../lib/dummyData/dummyStudioData.js');
 const dummyFilmData = require('../lib/dummyData/dummyFilmData.js');
-
+const dummyActorData = require('../lib/dummyData/dummyActorData.js');
 
 
 
@@ -44,6 +44,18 @@ describe('ripe-banana routes', () => {
 
   //-----------------------------------------------------------------------------------------------------/
 
+
+  it('POST /actors returns array of objects inserted', async () => {
+    const single_object_from_dummyData = dummyActorData[0];
+    
+    const res = await request(app).post('/actors').send(single_object_from_dummyData);
+   
+    expect(res.body).toEqual(single_object_from_dummyData);
+
+  });
+
+
+  //-----------------------------------------------------------------------------------------------------/
   it('GET /studios, returns [{ id, name }]', async () => {
     const res = await request(app).get('/studios');
     expect(res.body).toEqual([{
