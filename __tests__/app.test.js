@@ -32,7 +32,6 @@ describe('ripe-banana routes', () => {
   
   it('POST /films returns array of objects inserted', async () => {
     const single_object_from_dummyData = dummyFilmData[0];
-console.log('LOOOL', single_object_from_dummyData);
     const res = await request(app).post('/films').send(single_object_from_dummyData);
    
     expect(res.body).toEqual(single_object_from_dummyData);
