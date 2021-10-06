@@ -32,7 +32,7 @@ describe('ripe-banana routes', () => {
   
   it('POST /films returns array of objects inserted', async () => {
     const single_object_from_dummyData = dummyFilmData[0];
-console.log('LOOOL', single_object_from_dummyData);
+    
     const res = await request(app).post('/films').send(single_object_from_dummyData);
    
     expect(res.body).toEqual(single_object_from_dummyData);
@@ -56,23 +56,23 @@ console.log('LOOOL', single_object_from_dummyData);
 
 //-----------------------------------------------------------------------------------------------------/
 
-// it('GETS studio by ID', async => {
-//   const res = await request(app).get('/studios/1');
-//   expect(res.body).toEqual({
+it('GETS studio by ID', async () => {
+  const res = await request(app).get('/studios/1');
+  expect(res.body).toEqual({
 
-//     id: expect.any(Number),
-//     name: expect.any(String),
-//     city: expect.any(String),
-//     state: expect.any(String),
-//     country: expect.any(String),
-//     films: [{
+    id: expect.any(Number),
+    name: expect.any(String),
+    city: expect.any(String),
+    state: expect.any(String),
+    country: expect.any(String),
+    films: [{
 
-//     id: expect.any(Number),
-//     title: expect.any(String)
+      id: expect.any(Number),
+      title: expect.any(String)
         
-//     }]
-//   })
-// })
+    }]
+  });
+});
 
 
 
