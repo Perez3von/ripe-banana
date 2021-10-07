@@ -8,7 +8,7 @@ const dummyFilmData = require('../lib/dummyData/dummyFilmData.js');
 const dummyActorData = require('../lib/dummyData/dummyActorData.js');
 const dummyReviewerData = require('../lib/dummyData/dummyReviewerData');
 const dummyReviewData = require('../lib/dummyData/dummyReviewData.js');
-const dummyFilmsActorsData = require('../lib/dummyData/dummyFilmsActorsData.js');
+// const dummyFilmsActorsData = require('../lib/dummyData/dummyFilmsActorsData.js');
 
 
 
@@ -163,14 +163,14 @@ describe('ripe-banana routes', () => {
   });
   //---------------------------------------------------------------------------------------------//
   
-  it('POSTS data to the table', async () => {
-    const single_object_from_dummyData = dummyFilmsActorsData[0];
+  // it('POSTS data to the table', async () => {
+  //   const single_object_from_dummyData = dummyFilmsActorsData[0];
     
-    const res = await request(app)
-      .post('/filmsactors')
-      .send(single_object_from_dummyData);
-    expect(res.body).toEqual(single_object_from_dummyData);
-  });
+  //   const res = await request(app)
+  //     .post('/filmsactors')
+  //     .send(single_object_from_dummyData);
+  //   expect(res.body).toEqual(single_object_from_dummyData);
+  // });
 
   //-----------------------------------------------------------------------------------------------------/
 
