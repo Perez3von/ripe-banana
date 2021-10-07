@@ -46,14 +46,16 @@ CREATE TABLE reviews (
 
 id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 rating BIGINT NOT NULL,
-reviewer BIGINT NOT NULL,
+reviewer BIGINT REFERENCES reviewers (id) NOT NULL,
 review VARCHAR(140),
-film BIGINT NOT NULL
+film BIGINT REFERENCES films (id) NOT NULL
 
 );
 
 CREATE TABLE films_actors (
-    actors_id BIGINT REFERENCES actors(id),
-    films_id BIGINT REFERENCES films(id)
+    actors_id BIGINT,
+    FOREIGN KEY (actors_id) REFERENCES actors(id),
+    films_id BIGINT,
+    FOREIGN KEY (films_id) REFERENCES films(id)
 
 );
