@@ -165,9 +165,7 @@ describe('ripe-banana routes', () => {
     const res = await request(app).get('/actors');
     expect(res.body).toEqual([{
       id:expect.any(Number),
-      name:expect.any(String),
-      dob: expect.any(String),
-      pob: expect.any(String)
+      name:expect.any(String)
       }]
     );
   });
