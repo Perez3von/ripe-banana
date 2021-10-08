@@ -160,6 +160,21 @@ describe('ripe-banana routes', () => {
     });
   });
   //---------------------------------------------------------------------------------------------//
+
+  it('GETS  all actors ', async () => {
+    const res = await request(app).get('/actors');
+    expect(res.body).toEqual([{
+      id:expect.any(Number),
+      name:expect.any(String),
+      dob: expect.any(Number),
+      pob: expect.any(String)
+      }]
+    );
+  });
+  //---------------------------------------------------------------------------------------------//
+
+
+
   
   afterAll(() => {
     pool.end();
