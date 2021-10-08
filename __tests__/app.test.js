@@ -166,7 +166,7 @@ describe('ripe-banana routes', () => {
     expect(res.body).toEqual([{
       id:expect.any(Number),
       name:expect.any(String),
-      dob: expect.any(Number),
+      dob: expect.any(String),
       pob: expect.any(String)
       }]
     );
