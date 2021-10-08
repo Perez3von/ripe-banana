@@ -8,7 +8,7 @@ const dummyFilmData = require('../lib/dummyData/dummyFilmData.js');
 const dummyActorData = require('../lib/dummyData/dummyActorData.js');
 const dummyReviewerData = require('../lib/dummyData/dummyReviewerData.js');
 const dummyReviewData = require('../lib/dummyData/dummyReviewData.js');
-const dummyFilmsActorsData = require('../lib/dummyData/dummyFilmsActorsData.js');
+const dummyFilmsActorsData = require('../lib/dummyData/dummyFIlmsActorsData.js');
 
 //code here
 describe('ripe-banana routes', () => {
