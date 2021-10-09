@@ -187,6 +187,18 @@ describe('ripe-banana routes', () => {
   });
   //---------------------------------------------------------------------------------------------//
 
+  it('GETS reviewer ', async () => {
+    const res = await request(app).get('/reviewer');
+    expect(res.body).toEqual(
+      [{
+        id:expect.any(Number),
+        name:expect.any(String),
+        company: expect.any(String),
+      }]
+    );
+  });
+  //---------------------------------------------------------------------------------------------//
+
   
 
 
