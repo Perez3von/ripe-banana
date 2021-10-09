@@ -160,7 +160,85 @@ describe('ripe-banana routes', () => {
     });
   });
   //---------------------------------------------------------------------------------------------//
+
+  it('GETS  all actors ', async () => {
+    const res = await request(app).get('/actors');
+    expect(res.body).toEqual([{
+      id:expect.any(Number),
+      name:expect.any(String)
+    }]
+    );
+  });
+  //---------------------------------------------------------------------------------------------//
+
+  it('GETS actors with films ', async () => {
+    const res = await request(app).get('/actors/1');
+    expect(res.body).toEqual({
+      name:expect.any(String),
+      dob: expect.any(String),
+      pob: expect.any(String),
+      films: [{
+        id:expect.any(Number),
+        title:expect.any(String),
+        released: expect.any(Number),
+      }]
+    }
+    );
+  });
+  //---------------------------------------------------------------------------------------------//
+
+  it('GETS reviewer ', async () => {
+    const res = await request(app).get('/reviewers');
+    expect(res.body).toEqual(
+      [{
+        id:expect.any(Number),
+        name:expect.any(String),
+        company: expect.any(String),
+      }]
+    );
+  });
+  //---------------------------------------------------------------------------------------------//
+
+  it('GETS reviewer by Id', async () => {
+    const res = await request(app).get('/reviewers/1');
+    expect(res.body).toEqual(
+      {
+        id:expect.any(Number),
+        name:expect.any(String),
+        company: expect.any(String),
+        reviews: [{
+          id:expect.any(Number),
+          rating:expect.any(Number),
+          review: expect.any(String),
+          film: { 
+            id:expect.any(Number),
+            title: expect.any(String) }
+        }]
+      }
+    );
+  });
+  //---------------------------------------------------------------------------------------------//
+
+  it('GETS All reviews', async () => {
+    const res = await request(app).get('/reviews');
+    expect(res.body).toEqual(
+      [{
+        id:expect.any(Number),
+        rating:expect.any(Number),
+        review: expect.any(String),
+        film: { 
+          id:expect.any(Number),
+          title: expect.any(String) }
+      }]
+    );
+  });
+  //---------------------------------------------------------------------------------------------//
+
   
+
+
+
+
   afterAll(() => {
     pool.end();
   });
