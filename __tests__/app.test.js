@@ -166,14 +166,32 @@ describe('ripe-banana routes', () => {
     expect(res.body).toEqual([{
       id:expect.any(Number),
       name:expect.any(String)
-      }]
+    }]
     );
   });
   //---------------------------------------------------------------------------------------------//
 
-
+  it('GETS actors with films ', async () => {
+    const res = await request(app).get('/actors/1');
+    expect(res.body).toEqual({
+      name:expect.any(String),
+      dob: expect.any(String),
+      pob: expect.any(String),
+      films: [{
+        id:expect.any(Number),
+        title:expect.any(String),
+        released: expect.any(Number),
+      }]
+    }
+    );
+  });
+  //---------------------------------------------------------------------------------------------//
 
   
+
+
+
+
   afterAll(() => {
     pool.end();
   });
