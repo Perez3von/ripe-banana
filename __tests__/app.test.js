@@ -188,7 +188,7 @@ describe('ripe-banana routes', () => {
   //---------------------------------------------------------------------------------------------//
 
   it('GETS reviewer ', async () => {
-    const res = await request(app).get('/reviewer');
+    const res = await request(app).get('/reviewers');
     expect(res.body).toEqual(
       [{
         id:expect.any(Number),
