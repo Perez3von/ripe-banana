@@ -199,6 +199,41 @@ describe('ripe-banana routes', () => {
   });
   //---------------------------------------------------------------------------------------------//
 
+  it('GETS reviewer by Id', async () => {
+    const res = await request(app).get('/reviewers/1');
+    expect(res.body).toEqual(
+      {
+        id:expect.any(Number),
+        name:expect.any(String),
+        company: expect.any(String),
+        reviews: [{
+          id:expect.any(Number),
+          rating:expect.any(Number),
+          review: expect.any(String),
+          film: { 
+            id:expect.any(Number),
+            title: expect.any(String) }
+        }]
+      }
+    );
+  });
+  //---------------------------------------------------------------------------------------------//
+
+  it('GETS All reviews', async () => {
+    const res = await request(app).get('/reviews');
+    expect(res.body).toEqual(
+      [{
+        id:expect.any(Number),
+        rating:expect.any(Number),
+        review: expect.any(String),
+        film: { 
+          id:expect.any(Number),
+          title: expect.any(String) }
+      }]
+    );
+  });
+  //---------------------------------------------------------------------------------------------//
+
   
 
 
