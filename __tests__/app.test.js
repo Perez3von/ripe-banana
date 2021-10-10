@@ -234,6 +234,18 @@ describe('ripe-banana routes', () => {
   });
   //---------------------------------------------------------------------------------------------//
 
+  it('PUT reviewers', async () => {
+    const res = await request(app).put('/reviewers/1').send({ name: 'carlitos', company: 'aguacates company' });
+    expect(res.body).toEqual(
+      {
+        id: 1,
+        name: 'carlitos', 
+        company: 'aguacates company'
+      }
+    );
+  });
+  //---------------------------------------------------------------------------------------------//
+
   
 
 
