@@ -219,7 +219,7 @@ describe('ripe-banana routes', () => {
   });
   //---------------------------------------------------------------------------------------------//
 
-  it('GETS All reviews', async () => {
+  xit('GETS All reviews', async () => {
     const res = await request(app).get('/reviews');
     expect(res.body).toEqual(
       [{
