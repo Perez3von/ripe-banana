@@ -297,7 +297,7 @@ describe('ripe-banana routes', () => {
   });
   //---------------------------------------------------------------------------------------------//
 
-  xit('DELETES reviewer', async () => {
+  it('DELETES reviewer', async () => {
     const res = await request(app).delete('/reviewers/2');
     expect(res.body).toEqual(
       {
