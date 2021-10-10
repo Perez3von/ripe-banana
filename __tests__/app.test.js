@@ -71,6 +71,25 @@ describe('ripe-banana routes', () => {
   //-----------------------------------------------------------------------------------------------------/
 
 
+
+  it('POST /reviewers array of objects inserted', async () => {
+    const single_object_from_dummyData = dummyReviewerData[1];
+    
+    const res = await request(app).post('/reviewers').send(single_object_from_dummyData);
+   
+    expect(res.body).toEqual(single_object_from_dummyData);
+
+  });
+
+
+  //-----------------------------------------------------------------------------------------------------/
+
+
+
+
+
+
+
   it('POST /reviews array of objects inserted', async () => {
     const single_object_from_dummyData = dummyReviewData[0];
     
@@ -81,6 +100,35 @@ describe('ripe-banana routes', () => {
   });
 
   // -----------------------------------------------------------------------------------------------------/
+
+
+
+
+
+
+
+
+  it('POST /reviews array of objects inserted 2', async () => {
+    const single_object_from_dummyData = dummyReviewData[1];
+    
+    const res = await request(app).post('/reviews').send(single_object_from_dummyData);
+   
+    expect(res.body).toEqual(single_object_from_dummyData);
+
+  });
+
+  // -----------------------------------------------------------------------------------------------------/
+
+
+
+
+
+
+
+
+
+
+
   it('POSTS data to the table', async () => {
     const single_object_from_dummyData = dummyFilmsActorsData[0];
     
@@ -188,14 +236,9 @@ describe('ripe-banana routes', () => {
   //---------------------------------------------------------------------------------------------//
 
   it('GETS reviewer ', async () => {
+
     const res = await request(app).get('/reviewers');
-    expect(res.body).toEqual(
-      [{
-        id:expect.any(Number),
-        name:expect.any(String),
-        company: expect.any(String),
-      }]
-    );
+    expect(res.body).toEqual(dummyReviewerData);
   });
   //---------------------------------------------------------------------------------------------//
 
@@ -229,6 +272,14 @@ describe('ripe-banana routes', () => {
         film: { 
           id:expect.any(Number),
           title: expect.any(String) }
+      },
+      {
+        id:expect.any(Number),
+        rating:expect.any(Number),
+        review: expect.any(String),
+        film: { 
+          id:expect.any(Number),
+          title: expect.any(String) }
       }]
     );
   });
@@ -241,6 +292,18 @@ describe('ripe-banana routes', () => {
         id: 1,
         name: 'carlitos', 
         company: 'aguacates company'
+      }
+    );
+  });
+  //---------------------------------------------------------------------------------------------//
+
+  xit('DELETES reviewer', async () => {
+    const res = await request(app).delete('/reviewers/2');
+    expect(res.body).toEqual(
+      {
+        id: expect.any(Number),
+        name: expect.any(String),
+        company: expect.any(String) 
       }
     );
   });
